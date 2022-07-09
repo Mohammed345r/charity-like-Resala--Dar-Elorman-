@@ -1,0 +1,152 @@
+/*table 1*/
+Create table AdminTable(
+        org_id number (20) primary key,
+        name_org varchar2 (20) ,
+        official_email varchar2 (30),
+        password_admin varchar2 (10),
+        phone varchar2 (11)
+);
+/*table 2*/
+Create table Service(
+        serialNumber varchar2 (20) primary key,
+        type_serv varchar2 (30) ,
+        name_serv varchar2 (30) ,
+        Date_service date,
+        org_id_serv number (20) References AdminTable (org_id)
+);
+/*table 3*/
+Create table Donator(
+        ssn_d number (20) primary key,
+        name_don varchar2 (20) ,
+        address varchar2 (100),
+        phone varchar2 (11) ,
+        don_email varchar2 (30),
+        password_don varchar2 (10)
+         
+        
+);
+/*table 4*/
+Create table Needy(
+        ssn_n number (20) primary key,
+        name_ned varchar2 (20) ,
+        phone_ned varchar2 (11) , 
+        address_ned varchar2 (100),
+        Neady_Type varchar2 (100),
+        org_id_ned  number (20)  References AdminTable (org_id)
+);
+/*table 5*/
+Create table Needy_type(
+        type_ned varchar2 (20), 
+        ssn_n_t number (20) References Needy (ssn_n) ,
+        sernum number(20) primary key
+);
+/*table 6*/
+Create table Serv_Don_Rel(
+        type_serv varchar2 (20) References Service (serialNumber), 
+         name_don varchar2 (20) ,
+        ssn_don number (20) References Donator (ssn_d),
+        sernum2 number(20) primary key
+);
+/*table 7*/
+Create table Needy_Serv_Rel(
+        serv_type varchar2 (20) References Service (serialNumber), 
+        name_need varchar2 (20) ,
+        ssn_ned number (20) References Needy (ssn_n),
+        sernum3 number(20) primary key
+);
+--Insert Table Admin
+insert into AdminTable values(1,'Resala','res@gmail','12345','12356789');
+insert into AdminTable values(2,'Resala2','res2@gmail','65789','9876654');
+insert into AdminTable values(3,'Resala3','res3@gmail','578956','54846645');
+--Insert Table Service
+insert into Service values('5c5-894-4aa','Sadaka','Eftar',TO_DATE('01-JAN-2003', 'DD-MON-YYYY'),1);
+insert into Service values('4c5-694-4ab','Sadaka','Feed',TO_DATE('03-JAN-2003', 'DD-MON-YYYY'),1);
+insert into Service values('2b5-824-4da','Sadaka','Food',TO_DATE('05-JAN-2006', 'DD-MON-YYYY'),1);
+insert into Service values('2c9-784-4a1','Sadaka','Food',TO_DATE('06-JAN-2008', 'DD-MON-YYYY'),2);
+
+--Insert Table Donator
+insert into Donator values(1568431,'Ahmed','Ain-shams,El3basia','123-546','ahmed@gmail.com','ahmed2345');
+insert into Donator values(1565466,'Mohsen','Elm3adi City','789-510','Mohsen@outlook.com','mohsen4665');
+insert into Donator values(4865516,'MohamedRefaat','Madinty','101-556','mohamedR@yahoo.com','refaat4861');
+--Insert Table Needy
+insert into Needy values(206090,'Elshahat Mabrouk','123-456','3ezba Elkhlood','Sadaka',1);
+insert into Needy values(203080,'Adel Kolkasa','789-496','El-Etihad','Sadaka,eftar,home',1);
+insert into Needy values(236060,'Mostafa Refaat','108-909','Elm3adi','Sadaka',2);
+insert into Needy values(266570,'Brimston Valo','250-300','Valorant Game','Eftar',2);
+--insert Needy Type Table
+
+insert into Needy_type values('Zakaria',203080,1);
+insert into Needy_type values('Zakaah',203080,2);
+insert into Needy_type values('Sadaka',266570,3);
+insert into Needy_type values('Boxing',266570,4);
+insert into Needy_type values('Tabrou3at',266570,5);
+--insert Serv_Don_Rel
+insert into Serv_Don_Rel values('5c5-894-4aa','Ahmed',1568431,1);
+insert into Serv_Don_Rel values('4c5-694-4ab','Mohsen',1565466,2);
+insert into Serv_Don_Rel values('2b5-824-4da','MohamedRefaat',4865516,3);
+--insert Needy_Serv_Rel
+insert into Needy_Serv_Rel values('5c5-894-4aa','Elshahat Mabrouk',206090,1);
+insert into Needy_Serv_Rel values('4c5-694-4ab','Adel Kolkasa',203080,2);
+insert into Needy_Serv_Rel values('2b5-824-4da','Mostafa Refaat',236060,3);
+---------------------------------------------------------------------------------
+create or replace PROCEDURE updaaat_don
+(ssndontor in NUMBER ,
+name_dont in VARCHAR2,
+Adress_dont in VARCHAR2,
+phonee_dont in VARCHAR2,
+Emaill_dont in VARCHAR2,
+password_doon in VARCHAR2)
+IS
+BEGIN
+UPDATE Donator
+SET 
+ name_don=name_dont,
+ address = Adress_dont , 
+ phone=phonee_dont ,
+ don_email=Emaill_dont,
+ password_don=password_doon
+WHERE  ssn_d = ssndontor;
+END;
+
+
+-----------------------------------------
+create or replace PROCEDURE selsssnd
+(cid out sys_refcursor)
+as 
+BEGIN
+open cid for
+select ssn_n
+from needy;
+end;
+
+.........................................
+CREATE OR REPLACE PROCEDURE SELCTMULT
+(ssd in NUMBER,
+namerty out VARCHAR2,
+address out VARCHAR2,
+phonen out VARCHAR2,
+typeserv out VARCHAR2)
+AS 
+BEGIN
+SELECT name_ned , address_ned, phone_ned, neady_type
+into namerty,address,phonen,typeserv
+FROM Needy 
+WHERE ssn_n=ssd;
+END ;
+
+............................................
+
+create or REPLACE PROCEDURE maxorg
+(orid out NUMBER)
+select max (org_id) 
+into orid
+from AdminTable;
+end;
+
+
+
+
+
+
+
+commit;

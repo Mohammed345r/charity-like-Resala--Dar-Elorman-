@@ -1,0 +1,15 @@
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\bin\x86\Release\charity_sw.exe.config
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\bin\x86\Release\charity_sw.exe
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\bin\x86\Release\charity_sw.pdb
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\bin\x86\Release\Oracle.DataAccess.dll
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\obj\x86\Release\charity_sw.csproj.AssemblyReference.cache
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\obj\x86\Release\charity_sw.csproj.SuggestedBindingRedirects.cache
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\obj\x86\Release\charity_sw.loginform.resources
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\obj\x86\Release\charity_sw.Form2.resources
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\obj\x86\Release\charity_sw.loadinformation.resources
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\obj\x86\Release\charity_sw.Properties.Resources.resources
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\obj\x86\Release\charity_sw.csproj.GenerateResource.cache
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\obj\x86\Release\charity_sw.csproj.CoreCompileInputs.cache
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\obj\x86\Release\charity_sw.csproj.CopyComplete
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\obj\x86\Release\charity_sw.exe
+C:\Users\Mohammed Refhaat\source\repos\charity_sw\charity_sw\obj\x86\Release\charity_sw.pdb
